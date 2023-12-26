@@ -1,0 +1,556 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+body{
+    min-height:100vh;
+    background: #eaf6ff;
+}
+header{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   padding:20px;
+   background: #eaf6ff;
+   display: flex;
+   align-items: center;
+   justify-content:space-evenly;
+   z-index: 99;
+   box-shadow:25px 25px 50px rgba(9,148,255,0.25),
+   -10px -10px 30px rgba(9,148,255,0.1),
+   inset -5px -5px 15px rgba(9,148,255,0.5);
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    color:Brown;
+    font-size: 18px;
+    font-weight: 600;
+}
+.logo h1{
+    font-family:Impact;
+}
+.search-box{
+    display: flex;
+   align-items: center;
+   justify-content:center;
+   background:transparent;
+}
+.search-box form{
+    background:rgba(217, 232, 255, 0.1);
+    border-radius: 20px;
+    width:250px;
+}
+.search-box form input{
+    width:180px;
+    font-size: 13px;
+    font-weight:bold;
+    background: transparent;
+    color:rgb(36, 25, 25);
+    padding:8px;
+    outline: none;
+    border:0;
+}
+.search-box form button{
+    border-radius:2px 12px 12px 2px;
+    padding:8px 0;
+    width:45px;
+    background: rgb(211, 0, 116);
+    font-size: 18px;
+    font-weight: bold;
+    color:#fff;
+    outline: none;
+    margin: 4px;
+    border:0;
+}
+.search-box .searchRandom{
+    border-radius:10px;
+    padding:8px 0;
+    width:50px;
+    background: rgb(211, 0, 116);
+    font-size: 18px;
+    font-weight: bold;
+    color:#fff;
+    outline: none;
+    margin: 4px;
+    border:0;  
+}
+.category-item{
+    position: relative;
+    font-size: 18px;
+    font-weight:bolder;
+    color:rgb(11, 165, 196);
+}
+.category-item h2{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1px;
+}
+.category-item h2:hover::after{
+   width:65%;
+}
+.category-item h2::after{
+    content: " ";
+    width:20%;
+    height:2px;
+    background-color: rgb(11, 165, 196);
+    position:absolute;
+    bottom:-4px;
+    left:0px;
+    margin:0 20px;
+    transition:1s;
+    transition-delay: calc(.2s * var(--i)) ;
+}
+.category-item.active h2::after{
+    background-color: #3fa6f6;
+}
+.category-item:hover{
+    cursor: pointer;
+}
+.container{
+    position: relative;
+    min-height:100vh;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap; 
+    gap: 100px 50px;
+    padding: 100px 50px;
+    margin-top: 50px;
+    
+}
+.container .card-recipie{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content:center;
+    width:300px;
+   height:300px;
+   background:#fff;
+    border-radius:10px;
+    box-shadow:25px 25px 50px rgba(9,148,255,0.25),
+                -10px -10px 30px rgba(9,148,255,0.1),
+                inset -5px -5px 15px rgba(9,148,255,0.5) ;
+    transition: 0.4s; 
+}
+.container .card{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content:center;
+    width:300px;
+    height:300px;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:25px 25px 50px rgba(9,148,255,0.25),
+                -10px -10px 30px rgba(9,148,255,0.1),
+                inset -5px -5px 15px rgba(9,148,255,0.5) ;
+    transition: 0.4s;
+}
+.container .card:hover { 
+    height:420px;
+    margin-top:50px ;
+    background-image: linear-gradient(315deg, #618adb 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+}
+.container .card-recipie:hover {
+    height:390px;
+    background-image: linear-gradient(315deg, #618adb 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    margin-top:50px ;
+}
+.container .card .imgBx,.container .card-recipie .imgBx{
+    position: absolute;
+    top:20px;
+    width: 270px;
+    height: 200px;
+    background:#fff;
+    box-shadow:0 0.4rem .8rem #0005;
+    border-radius: 12px;
+    overflow: hidden;
+    transform: 0.5s;
+}
+.container .card:hover .imgBx,.container .card-recipie:hover .imgBx{ 
+    top:-50px;
+    scale: 0.9;
+    box-shadow:0 0.4rem .8rem #0008;
+}
+.container .card .imgBx img,.container .card-recipie .imgBx img{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+}
+.container .card .content ,.container .card-recipie #content-recipe-detail{
+    position: absolute;
+    top: 245px;
+    width: 100%;
+    height: 35px;
+    padding: 0 30px;
+    text-align: center;
+    overflow:hidden;
+    transition: 0.5s;
+}
+.container .card:hover .content
+{   top: 145px;
+    height:250px;
+}
+.container .card-recipie:hover #content-recipe-detail{ 
+    top: 145px;
+    height:145px;
+    margin:10px auto;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.container .card .content h2,.container .card-recipie #content-recipe-detail h2{
+    font-size:1.5rem;
+    font-weight: 700;
+    font-family: "Poppins";
+    color:#0e915a; 
+}
+.container .card:hover .content h2,.container .card-recipie:hover #content-recipe-detail h2{
+    margin-top: 10px;
+    color:rgb(251, 255, 16); 
+}
+.container .card .content p{
+    color:#d8d8d8;
+    height:146px;
+    overflow:hidden;
+}
+.container .card-recipie .card-recipe-detail{
+    height:60px;
+    color:#f3f3f3;
+}
+.container .card-recipie .card-recipe-detail h4{
+    margin: 5px auto;
+}
+.container .card button ,.container .card-recipie button{
+    position: absolute;
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 2px auto;
+    background:#54deb9 ;
+    color:#ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius:10px;
+    display: none;
+    transition:0.5s;
+}
+.container .card:hover button{
+    display: block;
+    box-shadow:0 0.4rem .8rem #0005;
+    top:340px;
+}
+.container .card-recipie:hover button{
+    display: block;
+    box-shadow:0 0.4rem .8rem #0005;
+    top:310px;
+}
+.Recipe-Details{
+    background-image: linear-gradient(315deg, #4266af 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    box-shadow:0 0.4rem .8rem #0005;
+    width:65%;
+    height: 60%;
+    position:fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius:20px;
+    display:none;
+}
+.Recipe-Details h2{
+    font-family: poppins;
+    word-spacing: 2px;
+    color:rgb(255, 221, 0);
+    font-weight:900;
+    font-size:28px;
+    margin: 20px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.card-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+    margin: 20px;
+    height:70%;
+}
+.to-cancel{
+    font-size:20px;
+    font-weight: bold;
+    position:absolute;
+    top:10px;
+    right:20px;
+    text-decoration: none;
+}
+.card-img{
+    position:relative;
+    margin: 0 5px;
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width:32%;
+    height:100%;
+    border-radius: 10px;
+}
+.card-img img{
+    padding:10px 5px;
+    position: relative;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 60%;
+    object-fit:fill;
+    border-radius:20px;
+}
+.card-content{
+    width:62%;
+    padding:5px;
+    max-height:100%;
+    background: rgba(255, 255, 255,0.8);
+    border-radius: 15px;
+    overflow:auto;
+}
+.card-content .youtube-link{
+   margin:5px 50px;
+   display:flex;
+   align-items:center;
+   justify-content: center;
+}
+.card-content .youtube-link a{
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration:none;
+    color:#be0095;
+}
+.card-content .ingredients{
+    margin:5px 10px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
+.card-content .Instruction{
+    margin: 6px 20px;
+}
+.card-content::-webkit-scrollbar{
+    width:5px;
+    height: 5px;
+}
+.card-content::-webkit-scrollbar-thumb{
+    border-radius:5px;
+    background-color: #0004;
+    visibility: hidden;
+}
+.card-content:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+.card-img h5{
+    font-size:1.3rem;
+    font-weight:bold;
+    font-family: "Poppins";
+    color:rgb(255, 221, 0);
+    margin:5px auto;
+}
+.card-content .ingredients{
+    padding:0 10px 0 20px;
+    align-items:center;
+    display:flex;
+    align-items:center;
+    justify-content: flex-start; 
+}
+.card-content h4{
+    display:flex;
+    align-items:center;
+    justify-content: center; 
+    font-size:1.2rem;
+    color:rgb(10, 9, 3);
+}
+.RecepieNotfound{
+    display:flex;
+    align-items:center;
+    justify-content: center; 
+    flex-direction: column;
+    color:#ff0084;
+    margin: auto;
+}
+.RecepieNotfound h3{
+    color:#3fa6f6;
+}
+@media (max-width:1110px){
+    .Recipe-Details{
+        width:70%;
+    }
+}
+@media (max-width:1050px){
+    .Recipe-Details{
+        width:80%;
+    }
+    .card-img h5{
+        font-size:1.2rem;
+    }
+}
+@media (max-width:850px){
+    .logo{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .category-item{
+        font-size: 15px;
+        font-weight:bold;
+    }
+    .search-box {
+        width:180px;
+        border-radius: 10px;
+        padding: 0 50px;
+        overflow: hidden;
+        display:flex;
+        align-items: center;
+    }
+    .search-box form{
+        width:130px;  
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .search-box form input{
+        width:75px;
+        font-size: 16px;
+    }
+    .search-box form button{
+        font-size: 13px;
+        font-weight: bold;
+        border-radius: 2px 10px 10px 2px;
+        padding:11px 10px;
+        width:40px;
+    }
+    .search-box .searchRandom{
+        border-radius:10px;
+        padding:8px 12px;
+        width:60px;
+        font-size: 18px;
+        font-weight: bold;
+        outline: none;
+        margin: 4px;
+    }
+    .Recipe-Details{
+        width:90%;
+    }
+}
+@media (max-width:730px){
+    .Recipe-Details{
+        width:90%;
+    }
+    .card-img h5{
+        font-size:1rem;
+    }
+}
+@media (max-width:650px){
+    .Recipe-Details{
+        width:80%;
+        max-height:70%;
+    }
+    .card-img{
+        display:none;
+    }
+    .card-content{
+        width:90%;
+    }
+}
+@media (max-width:550px){
+    header{
+        display: flex;
+        align-items: center;
+        justify-content:space-evenly;    
+        flex-direction: column;
+        gap: 20px auto; 
+     }
+     .container{
+        margin-top:140px;
+     }
+    .logo{
+        font-size: 16px;
+        font-weight: 600;
+        padding: 5px 0;
+    }
+    .category-item{
+        font-size: 20px;
+        font-weight:bolder;
+        margin: 5px auto 10px;
+    }
+    .search-box {
+        width:350px;
+        border-radius: 20px;
+        margin: 5px auto 2px auto;
+        overflow: hidden;
+        display:flex;
+        align-items: center;
+    }
+    .search-box form{
+        width:300px;
+       padding: 2px 0;
+    }
+    .search-box form input{
+        width:190px;
+        font-size: 15px;
+    }
+    .search-box form button{
+        font-size: 16px;
+        font-weight: bold;
+        border-radius:2px 10px 10px 2px;
+        padding:9px 6px;
+        width:40px;
+    }
+    .search-box .searchRandom{
+        border-radius:10px;
+        padding:8px 12px;
+        width:60px;
+        font-size: 18px;
+        font-weight: bold;
+        outline: none;
+        margin: 4px;
+    }
+    .Recipe-Details{
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        display:none;
+    }
+}
+@media (max-width:430px){
+
+    .container .card{
+        width:260px;
+        height:260px;
+    }
+    .container .card .imgBx{
+        width:200px;
+        height:180px;
+    }
+    .container .card .content{
+        top: 210px;
+        height: 35px;
+    }
+    .container .card:hover .content
+    {   top: 135px;
+        height:265px;
+    }
+    .container .card .content p{
+        height:165px;
+    }
+    .container .card .content button{
+        padding: 8px 20px;
+    }
+}

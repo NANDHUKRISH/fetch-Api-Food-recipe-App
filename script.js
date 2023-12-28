@@ -1,4 +1,5 @@
-// Fetching categories data
+
+//--------- Fetching categories data
         async function GetCategorydata() {
             try {
                 const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
@@ -27,7 +28,6 @@
                         button.addEventListener('click', () => {
                             OpenCategoryDetails(data);
                         });
-                        document.querySelector('.category-item').className = 'category-item active';
                         Container.appendChild(categoryCard);
                     }
                 });
@@ -39,37 +39,38 @@
         }
         GetCategorydata();
 
-// categories button Activating
-        let Categories = document.querySelector('.category-item');
-        Categories.addEventListener('click', (e) => {
-            e.preventDefault();
-            GetCategorydata();
-        });
+//----------Home Swith Function
 
-//  function to Popup Category details
+        function ReloadHome(){
+            document.querySelector('.Recipe-Details').style.display = 'none';
+            document.querySelector('.container').style.display = 'flex';
+            GetCategorydata();
+        }
+
+//-----------  function to Popup Category details
         function OpenCategoryDetails(data) {
             // console.log(data);
             let recipeContent = document.querySelector('.card-container');
             //console.log(data);
             let content = '';
             content = `
-                <div class="card-img">
-                    <img src="${data.strCategoryThumb}" alt="${data.strCategory}" />
-                    <h5> Category: ${data.strCategory}</h5>
+                <div class="imgwrapper">
+                <img src="${data.strCategoryThumb}" alt="${data.strCategory}" />
+                <h3>${data.strCategory}</h3>
+            </div>
+            <div class="Instructionwrapper">
+                <h2>DESCRIPTION</h2>
+                <div class="content">
+                ${data.strCategoryDescription}
                 </div>
-                <div class="card-content">
-                    <h4>Description</h4>
-                    <div class="Instruction">
-                        <p>${data.strCategoryDescription}</p>
-                    </div>
-                </div>
+            </div>
                 `;
             recipeContent.innerHTML = content;
-            document.querySelector('.container').style.filter = 'blur(5px)';
+            document.querySelector('.container').style.display = 'none';
             document.querySelector('.Recipe-Details').style.display = 'block';
         }
 
-// fetching Search Recepie Data
+//------------- fetching Search Recepie Data
 
         async function fetchRecepie(item) {
             try {
@@ -102,7 +103,6 @@
                         button.addEventListener('click', () => {
                             OpenRecipeDetails(data);
                         });
-                        document.querySelector('.category-item').className = 'category-item';
                         Container.appendChild(recipeCard);
                     }
                 });
@@ -113,7 +113,7 @@
             }
         }
 
-// Activating Search button
+//------------ Activating Search button
         const SearchBox = document.querySelector('.searchBox');
         const SearchBtn = document.querySelector('.searchbtn');
 
@@ -123,7 +123,7 @@
             fetchRecepie(searchInput);
         });
 
-// Function to close the pop up recipie
+//----------- Function to close the pop up recipie
 
         // function to fetch Ingredients and measurements
         function fetchIngredients(data) {
@@ -147,40 +147,40 @@
             let content = '';
 
             content = `
-                <div class="card-img">
-                    <img src="${data.strMealThumb}" alt="${data.strMeal}" />
-                    <h5> Category: ${data.strCategory}</h5>
-                    <h5>${data.strArea} Dish</h5>
+                <div class="imgwrapper">
+                <img src="${data.strMealThumb}" alt="${data.strMeal}" />
+                <h3>${data.strMeal}</h3>
+            </div>
+            <div class="IngredientWrapper">
+                <h2>INGREDIENTS</h2>
+                <div class="content">
+                    <ol>
+                    ${fetchIngredients(data)}
+                    </ol>
                 </div>
-                <div class="card-content">
-                    <h4>You-Tube Link</h4>
-                    <div class="youtube-link">
-                    <a href="${data.strYoutube}">"${data.strYoutube}"</a>
-                    </div>
-                    <h4>Ingredients</h4>
-                <div class="ingredients">
-                    <ol>${fetchIngredients(data)}</ol>
+            </div>
+            <div class="Instructionwrapper">
+                <h2>INSTRUCTION</h2>
+                <div class="content">
+                ${data.strInstructions}
                 </div>
-                <h4>Instructions</h4>
-                <div class="Instruction">
-                    <p>${data.strInstructions}</p>
-                </div>
-                </div>
+            </div>
                 `;
             recipeContent.innerHTML = content;
-            document.querySelector('.container').style.filter = 'blur(5px)';
+            document.querySelector('.container').style.display = 'none';
             document.querySelector('.Recipe-Details').style.display = 'block';
         }
 
-// Function to close the pop up recipie
-        let CloseRecipe = document.querySelector('.to-cancel');
+//---------- Function to close the pop up recipie
+        let CloseRecipe = document.querySelector('#to-cancel');
         CloseRecipe.addEventListener('click', (e) => {
             e.preventDefault();
-            document.querySelector('.container').style.filter = 'none';
             document.querySelector('.Recipe-Details').style.display = 'none';
+            document.querySelector('.container').style.display = 'flex';
+            
         });
 
-// Random Meals
+//------------ Random Meals
         async function randomMeals() {
             try {
                 const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
@@ -213,7 +213,6 @@
                         button.addEventListener('click', () => {
                             OpenRecipeDetails(data);
                         });
-                        document.querySelector('.category-item').className = 'category-item';
                         Container.appendChild(recipeCard);
                     }
                 });
@@ -223,7 +222,9 @@
                     "<div class='RecepieNotfound'><h2>Ooopss!.. Not Found</h2><h3>Try Other Category</h3></div>";
             }
         }
-// Random Button Activating
+
+//-------- Random Button Activating
+
             let RandomButton = document.querySelector('.searchRandom');
             RandomButton.addEventListener('click', (e) => {
                 e.preventDefault();

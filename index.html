@@ -6,60 +6,73 @@
         <title>Fetching Data using async and await Project 1</title>
         <script src="script.js" defer></script>
         <link rel="stylesheet" href="styles.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
     </head>
     <body>
-
         <header>
-            <div class="logo"><h1>🍽️FOOD RECIPE🍽️</h1></div>
-            <div class="category-item "><h2>CATEGORIES</h2> </div>
+            <div class="logo"><h1 class="text-body">FOOD RECIPE🍽️</h1></div>
+            <div class="Home" onclick="ReloadHome(this)">🏠</div>
             <div class="search-box">
-                <form >
-                    <input type="text" name="search" class="searchBox" placeholder="Search Your Fav Recipes">
+                <form>
+                    <input type="text" name="search" class="searchBox" placeholder="Search Your Fav Recipes" />
                     <button type="submit" class="searchbtn"><i class="fa fa-search"></i></button>
                 </form>
                 <button type="submit" class="searchRandom"><i class="fa fa-random"></i></button>
             </div>
-            
         </header>
         <div class="container">
-            <!-- <div class="card">
-                <div class="imgBx">
-                    <img src="https://www.themealdb.com/images/category/beef.png" alt="Beef" />
-                </div>
-                <div class="content">
-                    <h2  class="card-header">Seafood</h2>
-                    <p>
-                         <h4> Area :${data.strArea}</h4>
-                       <h4> Category : ${data.strCategory}</h4>
-                    </p>
-                </div>
-                  <a href="#">Show Details</a>
-            </div> -->
         </div>
 
         <section class="Recipe-Details">
-            <h2>RECIPE DETAILS</h2>
             <div class="card-container">
-               <!--  <div class="card-img">
-                    <img src="https://www.themealdb.com/images/media/meals/1529446352.jpg" alt="Beef" />
-                    <h3>Chicken Ham and Leek Pie</h3>
-                </div>
-                <div class="card-content">
-                    <h5>Ingredients</h5>
-                   <div class="ingredients">
-                      <ul>
-                        <li>dvvsv</li>
-                      </ul>
-                   </div>
-                   <h5>Instructions</h5>
-                   <div class="Instruction">
-                      <p>Take a large pot or wok, big enough to cook all the chicken, and heat the oil in it. Once the oil is hot, add sliced onion and fry them until deep golden brown. Then take them out on a plate and set aside.\r\nTo the same pot, add the chopped garlic and sauté for a minute. Then add the chopped tomatoes and cook until tomatoes turn soft. This would take about 5 minutes.\r\nThen return the fried onion to the pot and stir. Add ginger paste and sauté well.\r\nNow add the cumin seeds, half of the coriander seeds and chopped green chillies. Give them a quick stir.\r\nNext goes in the spices – turmeric powder and red chilli powder. Sauté the spices well for couple of minutes.\r\nAdd the chicken pieces to the wok, season it with salt to taste and cook the chicken covered on medium-low heat until the chicken is almost cooked through. This would take about 15 minutes. Slowly sautéing the chicken will enhance the flavor, so do not expedite this step by putting it on high heat.\r\nWhen the oil separates from the spices, add the beaten yogurt keeping the heat on lowest so that the yogurt doesn’t split. Sprinkle the remaining coriander seeds and add half of the dried fenugreek leaves. Mix well.\r\nFinally add the cream and give a final mix to combine everything well.\r\nSprinkle the remaining kasuri methi and garam masala and serve the chicken handi hot with naan or rotis. Enjoy!"</p>
-                   </div>
-                </div> -->
+                    <div class="imgwrapper">
+                        <img src="https://www.themealdb.com/images/media/meals/vvusxs1483907034.jpg" alt="img" />
+                        <h3>BEEF</h3>
+                    </div>
+                    <div class="IngredientWrapper">
+                        <h2>INGREDIENTS</h2>
+                        <div class="content">
+                            <ol>
+                                <li>1 cup-Toor dal</li>
+                                <li>2-1/2 cups-Water</li>
+                                <li>1 tsp-Salt</li>
+                                <li>1/4 tsp-Turmeric</li>
+                                <li>3 tbs-Ghee</li>
+                                <li>1 cup-Chopped tomatoes</li>
+                                <li>1/2 tsp-Cumin seeds</li>
+                                <li>1/2 tsp-Mustard Seeds</li>
+                                <li>2-Bay Leaf</li>
+                                <li>1 tbs chopped-Green Chili</li>
+                                <li>2 tsp shredded-Ginger</li>
+                                <li>2 tbs -Cilantro</li>
+                                <li>1/2 tsp-Red Pepper</li>
+                                <li>1/2 tsp-Salt</li>
+                                <li>1 tsp-Sugar</li>
+                                <li>1/4 tsp-Garam Masala</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="Instructionwrapper">
+                        <h2>INSTRUCTION</h2>
+                        <div class="content">
+                            Wash and soak toor dal in approx. 3 cups of water, for at least one hours. Dal will be double in
+                            volume after soaking. Drain the water. Cook dal with 2-1/2 cups water and add salt, turmeric, on
+                            medium high heat, until soft in texture (approximately 30 mins) it should be like thick soup. In
+                            a frying pan, heat the ghee. Add cumin seeds, and mustard seeds. After the seeds crack, add bay
+                            leaves, green chili, ginger and chili powder. Stir for a few seconds. Add tomatoes, salt and
+                            sugar stir and cook until tomatoes are tender and mushy. Add cilantro and garam masala cook for
+                            about one minute. Pour the seasoning over dal mix it well and cook for another minute. Serve
+                            with Naan.
+                        </div>
+                    </div>
             </div>
-            <a href="#" class="to-cancel"> ❌ </a>
+            <button class="Back-btn" id="to-cancel">◀ &nbsp;BACK</button>
         </section>
-
     </body>
 </html>
